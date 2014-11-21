@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="LivestreamStarter.Views.FavoriteStreamsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:LivestreamStarter.Views"
+             xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="750"
+             x:Name="UserControl"
+             DataContext="{Binding Source={StaticResource Locator}, Path=FavoriteStreams}">
+
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="StreamsSource" Source="{Binding Path=Model.Streams}" IsLiveGroupingRequested="True">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="Status" />
+            </CollectionViewSource.GroupDescriptions>
+            <CollectionViewSource.SortDescriptions>
+                <componentModel:SortDescription PropertyName="Status"  Direction="Descending"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+
+        <SolidColorBrush x:Key="Grouping.Fill" Color="{DynamicResource BcColor}" />
+        <SolidColorBrush x:Key="ActionBar.Border" Color="{StaticResource VitaminCColor}"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Padding="5"
+                BorderThickness="0, 0, 0, 2"
+                BorderBrush="{StaticResource ActionBar.Border}" 
+                Grid.Row="0">
+            <views:ActionBarView />
+        </Border>
+
+        <Grid Grid.Row="1">
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding Source={StaticResource StreamsSource}, IsAsync=True}"
+                          VirtualizingPanel.IsVirtualizing="True"
+                          VirtualizingPanel.ScrollUnit="Pixel"
+                          ItemTemplate="{DynamicResource StreamsView}"
+                          Padding="0"
+                          Margin="0">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Rectangle Height="1" Fill="{StaticResource Grouping.Fill}" />
+                                        <TextBlock FontWeight="Bold"
+                                           Text="{Binding Name}"
+                                           HorizontalAlignment="Left"
+                                           Background="White"
+                                           Style="{StaticResource GroupingHeadingStyle}"
+                                           Padding="10,0,10,0"
+                                           Margin="10,0,0,0"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ItemsControl.GroupStyle>
+                </ItemsControl>
+            </ScrollViewer>
+            <Rectangle Height="3" VerticalAlignment="Top">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFCCCCCC" Offset="0"/>
+                        <GradientStop Offset="1" Color="#00CCCCCC"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Height="3" VerticalAlignment="Bottom" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFCCCCCC" Offset="1"/>
+                        <GradientStop Offset="0" Color="#00CCCCCC"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+    </Grid>
+</UserControl>

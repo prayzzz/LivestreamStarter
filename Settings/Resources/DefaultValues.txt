@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DefaultValues xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Channels>
+    <ChannelModel>
+      <Name>Ustream</Name>
+      <MainLink>http://www.ustream.tv/</MainLink>
+      <WeblinkPattern>http://www.ustream.tv/channel/{0}</WeblinkPattern>
+      <ImagePath>ustream.png</ImagePath>
+      <IsCustomChannel>false</IsCustomChannel>
+      <IsDefault>false</IsDefault>
+      <IsAllowedAsFavorite>false</IsAllowedAsFavorite>
+    </ChannelModel>
+    <ChannelModel>
+      <Name>GoodGame</Name>
+      <AliasName>Goodgame</AliasName>
+      <MainLink>http://goodgame.ru/</MainLink>
+      <WeblinkPattern>http://goodgame.ru/channel/{0}</WeblinkPattern>
+      <ImagePath>goodgame.png</ImagePath>
+      <IsCustomChannel>false</IsCustomChannel>
+      <IsDefault>false</IsDefault>
+      <IsAllowedAsFavorite>false</IsAllowedAsFavorite>
+    </ChannelModel>
+    <ChannelModel>
+      <Name>Livestream</Name>
+      <AliasName>Mogulus</AliasName>
+      <MainLink>http://www.livestream.com/</MainLink>
+      <WeblinkPattern>http://www.livestream.com/{0}</WeblinkPattern>
+      <ImagePath>livestream.png</ImagePath>
+      <IsCustomChannel>false</IsCustomChannel>
+      <IsDefault>false</IsDefault>
+      <IsAllowedAsFavorite>false</IsAllowedAsFavorite>
+    </ChannelModel>
+    <ChannelModel>
+      <Name>MLG TV</Name>
+      <AliasName>Mlgtv</AliasName>
+      <MainLink>http://tv.majorleaguegaming.com/</MainLink>
+      <ImagePath>mlg tv.png</ImagePath>
+      <IsCustomChannel>false</IsCustomChannel>
+      <IsDefault>false</IsDefault>
+      <IsAllowedAsFavorite>false</IsAllowedAsFavorite>
+    </ChannelModel>
+    <ChannelModel>
+      <Name>Youtube</Name>
+      <MainLink>http://www.youtube.com/</MainLink>
+      <ImagePath>youtube.png</ImagePath>
+      <IsCustomChannel>false</IsCustomChannel>
+      <IsDefault>false</IsDefault>
+      <IsAllowedAsFavorite>false</IsAllowedAsFavorite>
+    </ChannelModel>
+    <ChannelModel>
+      <Name>Custom</Name>
+      <ImagePath>custom.png</ImagePath>
+      <IsCustomChannel>false</IsCustomChannel>
+      <IsDefault>true</IsDefault>
+      <IsAllowedAsFavorite>false</IsAllowedAsFavorite>
+    </ChannelModel>
+    <ChannelModel>
+      <Name>Azubu</Name>
+      <AliasName>Azubu</AliasName>
+      <MainLink>http://www.azubu.tv/</MainLink>
+      <WeblinkPattern>http://www.azubu.tv/{0}</WeblinkPattern>
+      <ImagePath>azubu.png</ImagePath>
+      <IsCustomChannel>false</IsCustomChannel>
+      <IsDefault>false</IsDefault>
+      <IsAllowedAsFavorite>false</IsAllowedAsFavorite>
+    </ChannelModel>
+    <ChannelModel>
+      <Name>DouyuTV</Name>
+      <AliasName>Douyutv</AliasName>
+      <MainLink>http://www.douyutv.com/</MainLink>
+      <WeblinkPattern>http://www.douyutv.com/{0}</WeblinkPattern>
+      <ImagePath>douyutv.png</ImagePath>
+      <IsCustomChannel>false</IsCustomChannel>
+      <IsDefault>false</IsDefault>
+      <IsAllowedAsFavorite>false</IsAllowedAsFavorite>
+    </ChannelModel>
+  </Channels>
+  <Games>
+    <GameModel>
+      <Name>Starcraft 2</Name>
+      <AliasName>StarCraft II: Heart of the Swarm</AliasName>
+      <ShortCut>SC2</ShortCut>
+      <ImagePath>sc2.png</ImagePath>
+      <IsCustomGame>false</IsCustomGame>
+      <IsDefault>false</IsDefault>
+    </GameModel>
+    <GameModel>
+      <Name>League of Legends</Name>
+      <ShortCut>LoL</ShortCut>
+      <ImagePath>lol.png</ImagePath>
+      <IsCustomGame>false</IsCustomGame>
+      <IsDefault>false</IsDefault>
+    </GameModel>
+    <GameModel>
+      <Name>DotA 2</Name>
+      <AliasName>Dota 2</AliasName>
+      <ShortCut>Dota2</ShortCut>
+      <ImagePath>dota2.png</ImagePath>
+      <IsCustomGame>false</IsCustomGame>
+      <IsDefault>false</IsDefault>
+    </GameModel>
+    <GameModel>
+      <Name>Misc</Name>
+      <ShortCut>Misc</ShortCut>
+      <ImagePath>misc.png</ImagePath>
+      <IsCustomGame>false</IsCustomGame>
+      <IsDefault>true</IsDefault>
+    </GameModel>
+    <GameModel>
+      <Name>Hearthstone</Name>
+      <AliasName>Hearthstone: Heroes of Warcraft</AliasName>
+      <ShortCut>HS</ShortCut>
+      <ImagePath>hs.png</ImagePath>
+      <IsCustomGame>false</IsCustomGame>
+      <IsDefault>false</IsDefault>
+    </GameModel>
+    <GameModel>
+      <Name>BroodWar</Name>
+      <AliasName>StarCraft: Brood War</AliasName>
+      <ShortCut>BW</ShortCut>
+      <ImagePath>bw.png</ImagePath>
+      <IsCustomGame>false</IsCustomGame>
+      <IsDefault>false</IsDefault>
+    </GameModel>
+    <GameModel>
+      <Name>Diablo 3</Name>
+      <ShortCut>D3</ShortCut>
+      <ImagePath>d3.png</ImagePath>
+      <IsCustomGame>false</IsCustomGame>
+      <IsDefault>false</IsDefault>
+    </GameModel>
+    <GameModel>
+      <Name>Heroes of the Storm</Name>
+      <ShortCut>HotS</ShortCut>
+      <ImagePath>hots.png</ImagePath>
+      <IsCustomGame>false</IsCustomGame>
+      <IsDefault>false</IsDefault>
+    </GameModel>
+  </Games>
+</DefaultValues>

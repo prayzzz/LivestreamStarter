@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="LivestreamStarter.Views.ActionBarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resx="clr-namespace:Localization;assembly=Localization"
+             mc:Ignorable="d" 
+             d:DesignHeight="35" d:DesignWidth="300"
+             DataContext="{Binding Source={StaticResource Locator}, Path=ActionBar}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Button Style="{StaticResource AddButtonStyle}" 
+                        Command="{Binding OpenAddStreamViewCommand}" 
+                        ToolTip="{x:Static resx:CodeStrings.AddStream}" 
+                        Grid.Column="0" />
+
+        <Border Visibility="{Binding Model.IsPlaying, Converter={StaticResource BooleanToVisibilityConverter}}" 
+                HorizontalAlignment="Center" 
+                Grid.Column="1">
+            <WrapPanel>
+                <Image Source="../img/Misc/play.png" Width="32" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding Model.StreamName}" VerticalAlignment="Center" />
+            </WrapPanel>
+        </Border>
+    </Grid>
+</UserControl>

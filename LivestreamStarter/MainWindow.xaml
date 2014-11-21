@@ -1,0 +1,138 @@
+﻿<Window x:Class="LivestreamStarter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:Localization;assembly=Localization"
+        xmlns:views="clr-namespace:LivestreamStarter.Views"
+        xmlns:controls="clr-namespace:LivestreamStarter.Controls"
+        Title="{x:Static resx:CodeStrings.LivestreamStarter}"
+        MinHeight="315"
+        MinWidth="670"
+        Height="500"
+        Width="870"
+        Icon="img/icon.ico"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+    <Window.Resources>
+        <SolidColorBrush x:Key="TabBarBackground" Color="#191818" />
+        <SolidColorBrush x:Key="TabBarSpaceColor" Color="#eeeeee" />
+    </Window.Resources>
+
+    <Grid>
+        <!-- Overlay -->
+        <Grid ZIndex="1" Visibility="{Binding Model.IsOverlayVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Rectangle VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Fill="#55000000" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="150" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="23" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="1" 
+                            Grid.Column="1" 
+                            VerticalAlignment="Center" 
+                            Visibility="{Binding Model.IsSettingsViewVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <views:SettingsView Width="Auto"  />
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" 
+                            Grid.Column="1" 
+                            VerticalAlignment="Center" 
+                            Visibility="{Binding Model.IsAboutViewVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <views:AboutView Width="Auto"  />
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" 
+                            Grid.Column="1" 
+                            VerticalAlignment="Center" 
+                            Visibility="{Binding Model.IsAddStreamViewVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <views:AddStreamView Width="Auto"  />
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" 
+                            Grid.Column="1" 
+                            VerticalAlignment="Center" 
+                            Visibility="{Binding Model.IsLoadingViewVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <views:LoadingView Width="Auto"  />
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" 
+                            Grid.Column="1" 
+                            VerticalAlignment="Center" 
+                            Visibility="{Binding Model.IsErrorViewVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <views:ErrorView Width="Auto"  />
+                </StackPanel>
+
+                <Button Width="75"
+                        Content="{x:Static resx:CodeStrings.Cancel}"
+                        Visibility="{Binding Model.IsOverlayCancelVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Grid.Row="2"
+                        Grid.Column="2" />
+            </Grid>
+        </Grid>
+
+        <!-- Content -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110" />
+                <ColumnDefinition Width="4" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Background="{StaticResource TabBarBackground}">
+                <StackPanel>
+                    <controls:TabItemControl Image="img/Misc/list.png"
+                                             GroupName="TabSelector"
+                                             IsCountVisible="True" 
+                                             Count="{Binding Model.StreamOverviewCount}"
+                                             ToolTip="{x:Static resx:CodeStrings.Overview}"
+                                             Text="{x:Static resx:CodeStrings.Overview}"
+                                             IsChecked="{Binding Model.IsOverviewListSelected}" />
+
+                    <controls:TabItemControl Image="img/Misc/heart.png"
+                                             GroupName="TabSelector"
+                                             IsCountVisible="True" 
+                                             Count="{Binding Model.FavoriteStreamCount}"
+                                             ToolTip="{x:Static resx:CodeStrings.Favorites}"
+                                             Text="{x:Static resx:CodeStrings.Favorites}"
+                                             IsChecked="{Binding Model.IsFavoriteStreamListSelected}" />
+                </StackPanel>
+                <Grid>
+                    <DockPanel Dock="Bottom" VerticalAlignment="Bottom">
+                        <StackPanel>
+                            <Button Content="{x:Static resx:CodeStrings.Settings}" Command="{Binding OpenPathViewCommand}" Style="{DynamicResource TabBarButtonStyle}" />
+
+                            <controls:TabItemControl Image="img/Misc/text.png"
+                                             GroupName="TabSelector"
+                                             ToolTip="{x:Static resx:CodeStrings.Log}"
+                                             Text="{x:Static resx:CodeStrings.Log}"
+                                             IsChecked="{Binding Model.IsLogSelected}"
+                                             Visibility="{Binding Model.IsLogTabVisible, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                            <Button Content="{x:Static resx:CodeStrings.About}" Command="{Binding OpenAboutViewCommand}" Style="{DynamicResource TabBarButtonStyle}" />
+                        </StackPanel>
+                    </DockPanel>
+                </Grid>
+            </Grid>
+
+            <Rectangle VerticalAlignment="Stretch" Width="4" Fill="{StaticResource TabBarSpaceColor}" Grid.Column="1" />
+
+            <Grid Grid.Column="2">
+                <Grid Visibility="{Binding Model.IsOverviewListSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <views:StreamsOverviewView />
+                </Grid>
+                <Grid Visibility="{Binding Model.IsFavoriteStreamListSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <views:FavoriteStreamsView />
+                </Grid>
+                <Grid Visibility="{Binding Model.IsLogSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <views:LogView />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

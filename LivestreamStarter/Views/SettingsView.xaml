@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="LivestreamStarter.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:resx="clr-namespace:Localization;assembly=Localization"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:LivestreamStarter.Controls.KeyValue"
+             mc:Ignorable="d"
+             BorderThickness="1"
+             MinWidth="400"
+             Background="White"
+             BorderBrush="{DynamicResource BcBrush}"
+             DataContext="{Binding Source={StaticResource Locator}, Path=Settings}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0">
+            <Border Margin="5, 0, 0, 0">
+                <Image Source="../img/Misc/settings.png" Width="32" />
+            </Border>
+            <TextBlock Text="{x:Static resx:CodeStrings.Settings}"  Style="{DynamicResource DialogHeadingStyle}" />
+        </WrapPanel>
+
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="35" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <Border Margin="5" Grid.Row="0" Grid.Column="0">
+                <controls:KeyValueControl Key="{x:Static resx:CodeStrings.LiveStreamer}" Value="{Binding Model.Settings.LiveStreamerPath}" />
+            </Border>
+            <Button Content="{x:Static resx:CodeStrings.Browse}" Grid.Row="0" Grid.Column="1" Command="{Binding BrowseLivestreamerCommand}" />
+
+            <Border Margin="5" Grid.Row="1" Grid.Column="0" >
+                <controls:KeyValueControl Key="{x:Static resx:CodeStrings.VLC}" Value="{Binding Model.Settings.VlcPath}" />
+            </Border>
+            <Button Content="{x:Static resx:CodeStrings.Browse}" Grid.Row="1" Grid.Column="1" Command="{Binding BrowseVlcCommand}" />
+
+            <Border Margin="5" Grid.Row="2" Grid.Column="0" >
+                <controls:KeyBoolControl Key="{x:Static resx:CodeStrings.ShowLog}" Value="{Binding Model.Settings.IsLogVisible}" />
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <Button Content="{x:Static resx:CodeStrings.Save}" Grid.Column="1" Command="{Binding SaveCommand}" />
+            <Button Content="{x:Static resx:CodeStrings.Cancel}" Grid.Column="2" Command="{Binding CancelCommand}" />
+        </Grid>
+    </Grid>
+</UserControl>

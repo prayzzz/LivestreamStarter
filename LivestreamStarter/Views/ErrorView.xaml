@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="LivestreamStarter.Views.ErrorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:resx="clr-namespace:Localization;assembly=Localization"
+             mc:Ignorable="d" 
+             BorderThickness="1"
+             MinWidth="400"
+             Background="White"
+             BorderBrush="{DynamicResource BcBrush}"
+             DataContext="{Binding Source={StaticResource Locator}, Path=Error}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0">
+            <Border Margin="5, 0, 0, 0">
+                <Image Source="../img/Misc/error.png" Width="32" />
+            </Border>
+            <TextBlock Text="{x:Static resx:CodeStrings.Error}"  Style="{DynamicResource DialogHeadingStyle}" />
+        </WrapPanel>
+
+        <Border Grid.Row="1" Padding="10">
+            <ItemsControl ItemsSource="{Binding Model.Messages}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Separator x:Name="Separator" Visibility="Visible" />
+                            <TextBlock Text="{Binding}" HorizontalAlignment="Center" />
+                        </StackPanel>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                                <Setter Property="Visibility" TargetName="Separator" Value="Collapsed"/>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <Button Content="{x:Static resx:CodeStrings.Close}" Grid.Column="1" Command="{Binding CloseCommand}" />
+        </Grid>
+
+    </Grid>
+</UserControl>

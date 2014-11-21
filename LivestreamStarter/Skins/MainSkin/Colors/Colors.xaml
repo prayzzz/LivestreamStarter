@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="RedBrownColor">#FFCC6633</Color>
+    <SolidColorBrush x:Key="RedBrownBrush" Color="{StaticResource RedBrownColor}" />
+
+    <Color x:Key="VitaminCColor">#FFFF9900</Color>
+    <SolidColorBrush x:Key="VitaminCBrush" Color="{StaticResource VitaminCColor}" />
+
+    <Color x:Key="FogColor">#FF999999</Color>
+    <SolidColorBrush x:Key="FogBrush" Color="{StaticResource FogColor}" />
+
+    <Color x:Key="Route66Color">#FF424242</Color>
+    <SolidColorBrush x:Key="Route66Brush" Color="{StaticResource Route66Color}" />
+
+    <Color x:Key="SteadyGreyColor">#FFE9E9E9</Color>
+    <SolidColorBrush x:Key="SteadyGreyBrush" Color="{StaticResource SteadyGreyColor}" />
+
+    <Color x:Key="BcColor">#FFBCBCBC</Color>
+    <SolidColorBrush x:Key="BcBrush" Color="{StaticResource BcColor}" />
+
+    <Color x:Key="GamerBlueColor">#FF3299BB</Color>
+    <SolidColorBrush x:Key="GamerBlueBrush" Color="{StaticResource GamerBlueColor}" />
+
+    <Color x:Key="WhiteColor">#FFFFFFFF</Color>
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource WhiteColor}" />
+
+    <Color x:Key="BlackColor">#FF000000</Color>
+    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource BlackColor}" />
+</ResourceDictionary>
