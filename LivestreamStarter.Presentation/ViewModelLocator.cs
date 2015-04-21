@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System.Threading.Tasks;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 
 using LivestreamStarter.Presentation.Controller;
@@ -28,6 +29,7 @@ namespace LivestreamStarter.Presentation
 
             Logic.Registry.Register();
             Services.Registry.Register();
+
 
             SettingsManager.Load();
             Registry.Register();

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Xml.Serialization;
 
 using BaseEntities;
-
+using Common.Enum;
 using Microsoft.Practices.ServiceLocation;
-
+using Services.Common;
 using Services.Interfaces;
 using Services.Listener;
 
@@ -34,6 +34,13 @@ namespace Settings.Manager
             get
             {
                 return ServiceLocator.Current.GetInstance<IXmlFileService>();
+            }
+        }
+        private static ILogger Logger
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ILogger>();
             }
         }
 
