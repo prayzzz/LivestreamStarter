@@ -66,7 +66,6 @@ namespace TwitchConnector.Services
                 return null;
             }
 
-            webRequest.UserAgent = "LivestreamStarter by prayzzz (prayzzz@outlook.com)";
             using (var webResponse = webRequest.GetResponse())
             {
                 using (var stream = new StreamReader(webResponse.GetResponseStream()))

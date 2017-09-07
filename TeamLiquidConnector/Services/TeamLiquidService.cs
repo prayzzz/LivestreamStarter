@@ -44,7 +44,6 @@ namespace TeamLiquidConnector.Services
                 return null;
             }
 
-            webRequest.UserAgent = "LivestreamStarter by prayzzz (prayzzz@outlook.com)";
             webRequest.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip");
             TeamLiquidStreamList streamList;
 

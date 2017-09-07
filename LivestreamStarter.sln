@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivestreamStarter", "LivestreamStarter\LivestreamStarter.csproj", "{17BF65A9-3A07-4D11-B58C-D14BCC359CBF}"
 EndProject
@@ -36,11 +36,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HitboxConnector", "HitboxCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivestreamStarter.Presentation", "LivestreamStarter.Presentation\LivestreamStarter.Presentation.csproj", "{C4DBCBA9-6BA4-4A48-B9CD-6E608FD86429}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E7B417EC-0FF4-414C-81C5-373816709D42}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -103,5 +104,12 @@ Global
 		{BBD84518-4327-4162-B135-F2EBFA1976FC} = {77D1A2C8-4834-4133-877D-A58FC51D6285}
 		{6EB1C031-5782-4D5F-A3C6-5BE27B6D489F} = {77D1A2C8-4834-4133-877D-A58FC51D6285}
 		{53FC498E-375E-4868-BD66-E9368F05DA3F} = {77D1A2C8-4834-4133-877D-A58FC51D6285}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3CB0D55-DB37-40D7-B8CD-B2DD8A263CCB}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal
